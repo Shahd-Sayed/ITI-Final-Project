@@ -1,0 +1,16 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* body {
+  font-family: "Libertinus Mono", monospace !important;
+} */
+:root {
+  --main-color: #103559;
+  --main-text-color: #fff;
+  --hover-main-color: #092e53;
+  --main-bg-color: #fceed5;
+  --secondary-color:#667479;
+  --transition: all 0.3s;
+}

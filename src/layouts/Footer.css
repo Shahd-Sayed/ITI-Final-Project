@@ -1,0 +1,36 @@
+footer {
+  background-color: var(--main-bg-color);
+  border-radius: 50px 50px 0px 0px;
+  -webkit-border-radius: 50px 50px 0px 0px;
+  -moz-border-radius: 50px 50px 0px 0px;
+  -ms-border-radius: 50px 50px 0px 0px;
+  -o-border-radius: 50px 50px 0px 0px;
+  padding: 50px;
+  .sectionOne,
+  .sectionTwo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 20px;
+    }
+    .links,
+    .brands,
+    .terms {
+      display: flex;
+      gap: 20px;
+      a {
+        color: var(--main-color);
+        text-decoration: none;
+        font-weight: 500;
+        i {
+          font-size: 1.2rem;
+        }
+      }
+    }
+    .link p {
+      color: var(--secondary-color) !important;
+    }
+  }
+}

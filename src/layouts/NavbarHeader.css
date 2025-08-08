@@ -1,0 +1,28 @@
+.navbar {
+  background-color: var(--main-bg-color);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  padding: 20px 0px;
+  
+  .navbar-toggler {
+    color: var(--main-color);
+    border: none;
+    font-size: 2rem;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  div {
+    .navbar-nav {
+      a {
+        color: var(--main-color);
+        font-weight: 600;
+        font-size: 16px;
+        .fa-solid {
+          margin-right: 4px;
+        }
+      }
+    }
+  }
+}

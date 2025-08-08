@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    fetch("https://dummyjson.com/products/12").then((res) => res.json()).then((data) => console.log(data.reviews[0].comment));
+  </script>
+</body>
+
+<div className="reviews">
+  <h2>Reviews</h2>
+
+  data.reviews.map((review, i) => (
+  <div key={i} className="review">
+    <p className="review-body">"{review.body}"</p>
+    <p className="review-user">- {review.user}</p>
+  </div>
+  ))
+
+
+</html>

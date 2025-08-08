@@ -8,6 +8,7 @@ import NavbarHeader from "./components/NavbarHeader";
 import Footer from "./components/Footer";
 import Product from "./components/Product";
 import Category from "./components/Category";
+import ProductDetails from "./components/ProductDetails";
 
 function App() {
   const location = useLocation();
@@ -26,9 +27,10 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home />} />
         <Route path="/product" element={<Product />} />
+        <Route path="/product/:slug" element={<ProductDetails />} />
       </Routes>
 
-      {/* {shouldShowNavbar && <Footer />} */}
+      {shouldShowNavbar && <Footer />}
     </>
   );
 }

@@ -1,5 +1,6 @@
 import { Button, Container } from "react-bootstrap";
 import "../layouts/Section.css";
+import { Link } from "react-router-dom";
 
 function Section() {
   return (
@@ -24,7 +25,9 @@ function Section() {
               daily life easier and more enjoyable!
             </p>
             <div className="btnSection">
-              <Button>Explore All Kitchen Items</Button>
+              <Button>
+                <Link to="/product/kitchen-accessories">Explore All Kitchen Items</Link>
+              </Button>
             </div>
           </div>
         </div>

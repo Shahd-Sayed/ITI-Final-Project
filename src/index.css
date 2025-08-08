@@ -3,9 +3,11 @@
   margin: 0;
   box-sizing: border-box;
 }
-/* body {
-  font-family: "Libertinus Mono", monospace !important;
-} */
+body {
+  /* font-family: "Libertinus Mono", monospace !important;
+   */
+   font-family: sans-serif;
+}
 :root {
   --main-color: #103559;
   --main-text-color: #fff;

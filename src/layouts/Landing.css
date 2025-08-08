@@ -44,11 +44,12 @@
       }
 
       .btns {
-        button {
+        a {
           background-color: var(--main-color);
           color: var(--main-bg-color);
           border: none;
           padding: 10px 20px;
+          text-decoration: none;
           cursor: pointer;
           transition: var(--transition);
           border-radius: 8px;
@@ -68,7 +69,9 @@
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 20px;
       justify-items: center;
-
+      /* @media (max-width: 768px) {
+        display: none;
+      } */
       .card-image {
         width: 100%;
         max-width: 250px;

@@ -67,6 +67,10 @@
         -moz-border-radius: 8px;
         -ms-border-radius: 8px;
         -o-border-radius: 8px;
+        a {
+          color: var(--main-color);
+          text-decoration: none;
+        }
         &:hover {
           background-color: #f7e3c1;
           @media (max-width: 768px) {

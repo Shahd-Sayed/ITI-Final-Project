@@ -1,5 +1,6 @@
 import Cards from "./Cards";
 import Landing from "./Landing";
+import Reviews from "./Reviews";
 import Section from "./Section";
 
 function Home() {
@@ -8,6 +9,7 @@ function Home() {
       <Landing />
       <Cards />
       <Section />
+      <Reviews />
     </>
   );
 }

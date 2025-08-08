@@ -1,5 +1,6 @@
 import { Button, Container } from "react-bootstrap";
 import "../layouts/Landing.css";
+import { Link } from "react-router-dom";
 function Landing() {
   return (
     <>
@@ -7,7 +8,7 @@ function Landing() {
         <Container>
           <div className="grid py-4 ">
             <div className="cards ">
-              <h2 >One more product,</h2>
+              <h2>One more product,</h2>
               <h5 className="my-2">Thousands more possibilities!</h5>
               <p>
                 Having great products means more joy, more convenience, and more
@@ -15,7 +16,7 @@ function Landing() {
                 your needs and style!
               </p>
               <div className="btns">
-                <Button>Show All Products</Button>
+                <Link to="/product">Show All Products</Link>
               </div>
             </div>
             <div className="cardsGrid">

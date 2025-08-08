@@ -1,0 +1,143 @@
+import axios from "axios";
+import { use, useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { Container } from "react-bootstrap";
+import "../layouts/ProductDetails.css";
+import StarRating from "./Star";
+import ReviewCard from "./ReviewCard";
+
+function ProductDetails() {
+  const [reviews, setReviews] = useState([]);
+
+  const { slug } = useParams();
+  const [details, setDetails] = useState({});
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    axios.get(`https://dummyjson.com/products/${slug}`).then((res) => {
+      console.log(res.data);
+      setReviews(res.data.reviews || []);
+      setDetails(res.data);
+    });
+  }, [slug]);
+  return (
+    <>
+      <div className="products my-5">
+        <Container>
+          <div className="heading ">
+            <p>
+              category / <b>{details.category}</b>
+            </p>
+          </div>
+          <div className="flex pt-3">
+            <div className="images">
+              {details.images && details.images.length > 0 && (
+                <>
+                  <div
+                    className="imgss"
+                    data-discount={`discount ${details.discountPercentage} %`}>
+                    <img src={details.images[0]} alt={details.title} />
+                  </div>
+
+                  {details.images.length > 1 && (
+                    <div className="img_child">
+                      {details.images.slice(1, 3).map((img, index) => (
+                        <img
+                          key={index}
+                          src={img}
+                          alt={`${details.title} ${index + 1}`}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </>
+              )}
+            </div>
+
+            <div className="section">
+              <h3>{details.title}</h3>
+              <div
+                className="rate"
+                style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <StarRating rate={details.rating || 0} />
+              </div>
+              <div className="dimensions">
+                <p>
+                  <b>Width: </b>
+                  {details.dimensions?.width} cm
+                </p>
+                <p>
+                  <b>Height</b>: {details.dimensions?.height} cm
+                </p>
+                <p>
+                  <b>Depth:</b> {details.dimensions?.depth} cm
+                </p>
+              </div>
+              <div className="price">
+                <p>
+                  <b>Price :</b> $
+                  {details.price && details.discountPercentage
+                    ? (
+                        details.price *
+                        (1 - details.discountPercentage / 100)
+                      ).toFixed(2)
+                    : "N/A"}
+                </p>
+                <s>${details.price?.toFixed(2)}</s>
+              </div>
+              <hr />
+              <div className="desc">
+                <p>
+                  <b>description:</b> {details.description}
+                </p>
+                <div className="all">
+                  <p>
+                    <b>tags:</b> {details.tags?.join(" - ")}
+                  </p>
+                  <p>
+                    <b>brand:</b> {details.brand}
+                  </p>
+                </div>
+              </div>
+              <hr />
+              <div className="code">
+                <img src={details.meta?.qrCode} alt={details.title} />
+                <p>
+                  <b>barcode: </b> {details.meta?.barcode}
+                </p>
+              </div>
+              <hr />
+              <div className="btns">
+                <div className="counter">
+                  <button
+                    onClick={() => setCount((prev) => Math.max(0, prev - 1))}>
+                    −
+                  </button>
+                  <span>{count}</span>
+                  <button onClick={() => setCount((prev) => prev + 1)}>
+                    +
+                  </button>
+                </div>
+                <Link to="">Add to cart</Link>
+              </div>
+            </div>
+          </div>
+          <hr className="mt-5" />
+          <div className="headingReviews my-5">
+            <p>See what our customers are saying about this product !</p>
+            <h5>Reviews and Rating</h5>
+          </div>
+          <ReviewCard
+            reviews={reviews.map((result) => ({
+              ...result,
+              productImage: details.images?.[0], 
+              productTitle: details.title, 
+            }))}
+          />
+        </Container>
+      </div>
+    </>
+  );
+}
+
+export default ProductDetails;

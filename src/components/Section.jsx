@@ -25,9 +25,7 @@ function Section() {
               daily life easier and more enjoyable!
             </p>
             <div className="btnSection">
-              <Button>
                 <Link to="/product/kitchen-accessories">Explore All Kitchen Items</Link>
-              </Button>
             </div>
           </div>
         </div>

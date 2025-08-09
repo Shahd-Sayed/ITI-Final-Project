@@ -70,12 +70,12 @@ input[type="number"]:focus {
   outline: none;
 }
 
-.all {
+.alls {
   display: flex;
   gap: 20px;
 }
 
-.all label {
+.alls label {
   flex: 1;
 }
 
@@ -104,7 +104,7 @@ input[type="number"]:focus {
   margin-bottom:0px ;
 }
 
-.sectionTwos .all {
+.sectionTwos .alls {
   display: flex;
   justify-content: space-between;
   align-items: center;

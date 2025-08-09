@@ -11,6 +11,7 @@ import Category from "./components/Category";
 import ProductDetails from "./components/ProductDetails";
 import Cart from "./components/Cart";
 import Payement from "./components/Payement";
+import ContactForm from "./pages/ContactForm";
 
 function App() {
   const location = useLocation();
@@ -32,6 +33,7 @@ function App() {
         <Route path="/product/:slug" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/payement" element={<Payement />} />
+        <Route path="/contact" element={<ContactForm />} />
       </Routes>
 
       {shouldShowNavbar && <Footer />}

@@ -59,7 +59,7 @@ function Payement() {
                 placeholder="1234 5678 9102 3456"
               />
             </label>
-            <div className="all">
+            <div className="alls">
               <label>
                 Expiration Date
                 <input type="date" name="payment" placeholder="MM/YY" />

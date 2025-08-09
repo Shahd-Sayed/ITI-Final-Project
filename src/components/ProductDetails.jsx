@@ -48,7 +48,8 @@ function ProductDetails() {
         price: details.price,
         discountPercentage: details.discountPercentage,
         thumbnail:
-          details.thumbnail || (details.images?.length ? details.images[0] : ""),
+          details.thumbnail ||
+          (details.images?.length ? details.images[0] : ""),
         quantity: count || 1,
       });
     }
@@ -80,8 +81,7 @@ function ProductDetails() {
                 <>
                   <div
                     className="imgss"
-                    data-discount={`discount ${details.discountPercentage} %`}
-                  >
+                    data-discount={`discount ${details.discountPercentage} %`}>
                     <img src={details.images[0]} alt={details.title} />
                   </div>
 
@@ -105,8 +105,7 @@ function ProductDetails() {
 
               <div
                 className="rate"
-                style={{ display: "flex", alignItems: "center", gap: "8px" }}
-              >
+                style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                 <StarRating rate={details.rating || 0} />
               </div>
 
@@ -168,17 +167,17 @@ function ProductDetails() {
 
               <div className="btns">
                 <div className="counter">
-                  <button onClick={() => setCount((prev) => Math.max(1, prev - 1))}>
+                  <button
+                    onClick={() => setCount((prev) => Math.max(1, prev - 1))}>
                     −
                   </button>
                   <span>{count}</span>
-                  <button onClick={() => setCount((prev) => prev + 1)}>+</button>
+                  <button onClick={() => setCount((prev) => prev + 1)}>
+                    +
+                  </button>
                 </div>
 
-                <Link
-                  onClick={addCart}
-                  style={{ cursor: "pointer" }}
-                >
+                <Link onClick={addCart} style={{ cursor: "pointer" }}>
                   Add to cart
                 </Link>
               </div>

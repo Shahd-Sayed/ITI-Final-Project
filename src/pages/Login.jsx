@@ -4,10 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { AuthContext } from "../contexts/AuthContext";
+import { useContext } from "react";
 
 function Login() {
   const navigate = useNavigate();
-
+  const { login } = useContext(AuthContext);
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -38,15 +40,14 @@ function Login() {
           }
         )
         .then((result) => {
-          localStorage.setItem("Login", result.data.token);
+          login("Login", result.data.token);
           navigate("/home", { replace: true });
         });
     },
   });
 
   return (
-    
-    <div className="allPage"> 
+    <div className="allPage">
       <Container className="d-flex justify-content-center flex-column align-items-center min-vh-100">
         <div className="p-4  login-card">
           <h2 className="text-center mb-4 fs-4">

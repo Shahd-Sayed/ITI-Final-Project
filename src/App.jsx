@@ -11,6 +11,7 @@ import ProductDetails from "./components/ProductDetails";
 import Cart from "./components/Cart";
 import Payement from "./components/Payement";
 import ContactForm from "./pages/ContactForm";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   const location = useLocation();
@@ -25,12 +26,19 @@ function App() {
 
       <Routes>
         <Route path="/" element={<SplashScreen />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/home" element={<Home />} />
         <Route path="/product" element={<Category />} />
         <Route path="/product/:slug" element={<ProductDetails />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route
+          path="/cart"
+          element={
+            <ProtectedRoute>
+              <Cart />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/payement" element={<Payement />} />
         <Route path="/contact" element={<ContactForm />} />
       </Routes>

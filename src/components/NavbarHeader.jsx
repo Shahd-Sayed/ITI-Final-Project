@@ -3,10 +3,14 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "../layouts/NavbarHeader.css";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../contexts/AuthContext";
 
 function NavbarHeader() {
-  const logout = () => {
-    localStorage.removeItem("Login");
+  const { user, logout } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logout();
   };
 
   return (
@@ -35,12 +39,18 @@ function NavbarHeader() {
                 <i className="fa-solid fa-cart-shopping"></i> <span>Cart</span>
               </Nav.Link>
               <Nav.Link as={Link} to="/contact">
-                <i class="fa-solid fa-address-book"></i> <span>Contact</span>
+                <i className="fa-solid fa-address-book"></i>
+                <span>Contact</span>
               </Nav.Link>
-              {localStorage.getItem("Login") && (
-                <Nav.Link as={Link} to="/login" onClick={logout}>
+              {user ? (
+                <Nav.Link as={Link} to="/home" onClick={handleLogout}>
                   <i className="fa-solid fa-right-from-bracket"></i>
                   <span>Logout</span>
+                </Nav.Link>
+              ) : (
+                <Nav.Link as={Link} to="/login">
+                  <i className="fa-solid fa-right-to-bracket"></i>
+                  <span>Login</span>
                 </Nav.Link>
               )}
             </Nav>

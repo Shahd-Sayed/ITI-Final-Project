@@ -5,9 +5,12 @@ import axios from "axios";
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useContext } from "react";
+import { AuthContext } from "../contexts/AuthContext";
 
 function Register() {
   const navigator = useNavigate();
+  const { login } = useContext(AuthContext);
 
   const formik = useFormik({
     initialValues: {
@@ -39,7 +42,7 @@ function Register() {
           }
         )
         .then((result) => {
-          localStorage.setItem("Login", result.data.token);
+          login("Login", result.data.token);
           navigator("/home", { replace: true });
         });
     },

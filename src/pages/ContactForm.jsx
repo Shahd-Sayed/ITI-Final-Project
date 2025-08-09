@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import emailjs from "emailjs-com";
-import "../layouts/ContactForm.css"; // هنعمل ملف CSS منفصل
+import "../layouts/ContactForm.css"; 
 
 function ContactForm() {
   const form = useRef();

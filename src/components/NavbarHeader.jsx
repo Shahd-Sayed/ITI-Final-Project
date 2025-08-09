@@ -22,7 +22,7 @@ function NavbarHeader() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <div className="w-100 d-flex justify-content-end flex-column flex-lg-row">
             <Nav className="gap-3">
-              <Nav.Link as={Link} to="/home" >
+              <Nav.Link as={Link} to="/home">
                 <i className="fa-solid fa-house"></i>
                 <span>Home</span>
               </Nav.Link>
@@ -35,8 +35,7 @@ function NavbarHeader() {
                 <i className="fa-solid fa-cart-shopping"></i> <span>Cart</span>
               </Nav.Link>
               <Nav.Link as={Link} to="/contact">
-                <i className="fa-solid fa-layer-group "></i>
-                <span>Contact</span>
+                <i class="fa-solid fa-address-book"></i> <span>Contact</span>
               </Nav.Link>
               {localStorage.getItem("Login") && (
                 <Nav.Link as={Link} to="/login" onClick={logout}>

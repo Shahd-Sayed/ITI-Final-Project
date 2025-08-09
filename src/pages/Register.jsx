@@ -44,27 +44,7 @@ function Register() {
         });
     },
   });
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const navigator = useNavigate();
-  // const handleRegister = (e) => {
-  //   e.preventDefault();
-  //   axios
-  //     .post(
-  //       "https://reqres.in/api/register",
-  //       {
-  //         email,
-  //         password,
-  //       },
-  //       {
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           "x-api-key": "reqres-free-v1",
-  //         },
-  //       }
-  //     )
-  //     .then(navigator("/", { replace: true }));
-  // };
+
   return (
     <>
       <Container className="d-flex justify-content-center flex-column align-items-center min-vh-100">

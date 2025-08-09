@@ -9,7 +9,9 @@ function CardsComponents({ products }) {
             className="card"
             key={product.id}
             data-precentage={`${product.discountPercentage.toFixed(1)}%`}>
-            <img src={product.images[0]} alt={product.title} loading="lazy" />
+            <div className="image_com">
+              <img src={product.images[0]} alt={product.title} loading="lazy" />
+            </div>
             <h4>
               {product.title.length > 20
                 ? `${product.title.slice(0, 20)}`

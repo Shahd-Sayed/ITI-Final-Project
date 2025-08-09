@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap";
-import "../layouts/Reviews.css";
+import "../../layouts/Reviews.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ReviewCard from "./ReviewCard";
@@ -31,7 +31,7 @@ function Reviews() {
             </p>
             <h5>Latest Products Review</h5>
           </div>
-          <ReviewCard reviews={reviews} showImage={true} />
+          <ReviewCard reviews={reviews} showImage={true} showEmail={false} />
         </Container>
       </div>
     </>

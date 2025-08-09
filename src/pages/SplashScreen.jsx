@@ -16,7 +16,6 @@ function SplashScreen() {
   return (
     <div className="splash d-flex flex-column justify-content-center align-items-center min-vh-100 ">
       <h2 className="fade_in">
-        {/* Welcome to our <b>Montio</b> */}
         <img src="../../icon (2).svg" alt="logo" />
       </h2>
     </div>

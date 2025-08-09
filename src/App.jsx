@@ -6,7 +6,6 @@ import SplashScreen from "./pages/SplashScreen";
 import Home from "./components/Home";
 import NavbarHeader from "./components/NavbarHeader";
 import Footer from "./components/Footer";
-import Product from "./components/Product";
 import Category from "./components/Category";
 import ProductDetails from "./components/ProductDetails";
 import Cart from "./components/Cart";
@@ -29,7 +28,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/product" element={<Product />} />
+        <Route path="/product" element={<Category />} />
         <Route path="/product/:slug" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/payement" element={<Payement />} />

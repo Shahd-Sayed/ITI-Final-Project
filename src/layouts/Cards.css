@@ -21,9 +21,9 @@
     }
   }
   .btn-view {
-    button {
-      width: 155px;
-      height: 44px;
+    a {
+      padding: 10px 20px;
+      text-decoration: none;
       border: 1.5px solid var(--main-color);
       outline: none;
       background-color: var(--main-text-color);
@@ -34,6 +34,7 @@
       -o-border-radius: 57px;
       font-size: 1rem;
       font-weight: 500;
+      color: var(--main-color);
       transition: var(--transition);
       -webkit-transition: var(--transition);
       -moz-transition: var(--transition);
@@ -42,13 +43,6 @@
       &:hover {
         background-color: var(--main-color);
         color: var(--main-bg-color);
-      }
-      a {
-        text-decoration: none;
-        color: var(--main-color);
-        &:hover {
-          color: var(--main-bg-color);
-        }
       }
     }
   }
@@ -83,8 +77,13 @@
       -o-border-radius: 0px 0px 0px 8px;
     }
 
-    img {
-      text-align: center;
+    .image_com {
+      width: 100%;
+      max-width: 300px;
+      img {
+        width: 100%;
+        text-align: center;
+      }
     }
     h4 {
       color: var(--main-color);

@@ -1,14 +1,13 @@
 import axios from "axios";
-import { use, useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import "../layouts/ProductDetails.css";
 import StarRating from "./Star";
-import ReviewCard from "./ReviewCard";
+import ReviewCard from "./Home/ReviewCard";
 
 function ProductDetails() {
   const [reviews, setReviews] = useState([]);
-  const navigate = useNavigate();
   const { slug } = useParams();
   const [details, setDetails] = useState({});
   const [count, setCount] = useState(1);

@@ -1,7 +1,7 @@
-import Cards from "./Cards";
-import Landing from "./Landing";
-import Reviews from "./Reviews";
-import Section from "./Section";
+import Cards from "./Home/Cards";
+import Landing from "./Home/Landing";
+import Reviews from "./Home/Reviews";
+import Section from "./Home/Section";
 
 function Home() {
   return (

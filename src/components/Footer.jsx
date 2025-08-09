@@ -9,9 +9,9 @@ function Footer() {
           <div className="sectionOne">
             <div className="links">
               <Link to="/home">Home</Link>
-              <Link to="/category">Category</Link>
-              <Link to="/products">Products</Link>
+              <Link to="/product">Products</Link>
               <Link to="/cart">Cart</Link>
+              <Link to="/contact">Contact</Link>
             </div>
             <div className="brands">
               <a

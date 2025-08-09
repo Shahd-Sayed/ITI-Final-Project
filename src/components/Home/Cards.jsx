@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap";
-import "../layouts/Cards.css";
+import "../../layouts/Cards.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import CardsComponents from "./CardsComponents";
@@ -36,13 +36,11 @@ function Cards() {
           <h5>Our Products</h5>
         </div>
         <div className="btn-view">
-          <button > 
-            <Link to={"/product"}>View more</Link>
-            <i className="fa-solid fa-angle-right ps-2"></i>
-          </button>
+          <Link to={"/product"}>
+            View more <i className="fa-solid fa-angle-right ps-2"></i>
+          </Link>
         </div>
       </div>
-
       <CardsComponents products={products} />
     </Container>
   );

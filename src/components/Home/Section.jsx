@@ -1,5 +1,5 @@
-import { Button, Container } from "react-bootstrap";
-import "../layouts/Section.css";
+import { Container } from "react-bootstrap";
+import "../../layouts/Section.css";
 import { Link } from "react-router-dom";
 
 function Section() {
@@ -24,8 +24,8 @@ function Section() {
               daily life easier and more enjoyable!
             </p>
             <div className="btnSection">
-              <Link to="/product/kitchen-accessories">
-                Explore All Kitchen Items
+              <Link to={`/product`}>
+                Explore Our All Products
               </Link>
             </div>
           </div>

@@ -9,6 +9,8 @@ import Footer from "./components/Footer";
 import Product from "./components/Product";
 import Category from "./components/Category";
 import ProductDetails from "./components/ProductDetails";
+import Cart from "./components/Cart";
+import Payement from "./components/Payement";
 
 function App() {
   const location = useLocation();
@@ -28,6 +30,8 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/product" element={<Product />} />
         <Route path="/product/:slug" element={<ProductDetails />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/payement" element={<Payement />} />
       </Routes>
 
       {shouldShowNavbar && <Footer />}

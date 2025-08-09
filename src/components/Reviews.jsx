@@ -31,7 +31,7 @@ function Reviews() {
             </p>
             <h5>Latest Products Review</h5>
           </div>
-          <ReviewCard reviews={reviews} />
+          <ReviewCard reviews={reviews} showImage={true} />
         </Container>
       </div>
     </>

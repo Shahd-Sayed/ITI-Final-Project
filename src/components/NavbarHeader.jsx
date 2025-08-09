@@ -31,7 +31,7 @@ function NavbarHeader() {
                 <i className="fa-solid fa-box-open"></i>
                 <span>Products</span>
               </Nav.Link>
-              <Nav.Link as={Link} to="#cart">
+              <Nav.Link as={Link} to="/cart">
                 <i className="fa-solid fa-cart-shopping"></i> <span>Cart</span>
               </Nav.Link>
               <Nav.Link as={Link} to="/contact">

@@ -9,7 +9,6 @@ function Section() {
         <div className="sections my-5">
           <div className="img">
             <img
-              //   src="https://cdn.dummyjson.com/product-images/kitchen-accessories/black-aluminium-cup/2.webp"
               src="https://cdn.dummyjson.com/product-images/kitchen-accessories/microwave-oven/4.webp"
               alt=""
             />
@@ -25,7 +24,9 @@ function Section() {
               daily life easier and more enjoyable!
             </p>
             <div className="btnSection">
-                <Link to="/product/kitchen-accessories">Explore All Kitchen Items</Link>
+              <Link to="/product/kitchen-accessories">
+                Explore All Kitchen Items
+              </Link>
             </div>
           </div>
         </div>

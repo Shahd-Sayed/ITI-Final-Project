@@ -1,6 +1,6 @@
 import axios from "axios";
 import { use, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import "../layouts/ProductDetails.css";
 import StarRating from "./Star";
@@ -8,10 +8,10 @@ import ReviewCard from "./ReviewCard";
 
 function ProductDetails() {
   const [reviews, setReviews] = useState([]);
-
+  const navigate = useNavigate();
   const { slug } = useParams();
   const [details, setDetails] = useState({});
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
 
   useEffect(() => {
     axios.get(`https://dummyjson.com/products/${slug}`).then((res) => {
@@ -20,6 +20,42 @@ function ProductDetails() {
       setDetails(res.data);
     });
   }, [slug]);
+
+  const addCart = () => {
+    const existingCart = JSON.parse(localStorage.getItem("cart")) || {
+      userId: 1,
+      products: [],
+    };
+
+    const existingProductIndex = existingCart.products.findIndex(
+      (p) => p.id === details.id
+    );
+
+    if (existingProductIndex > -1) {
+      existingCart.products[existingProductIndex].quantity += count || 1;
+    } else {
+      existingCart.products.push({
+        id: details.id,
+        title: details.title,
+        price: details.price,
+        discountPercentage: details.discountPercentage,
+        thumbnail:
+          details.thumbnail ||
+          (details.images?.length ? details.images[0] : ""),
+        quantity: count || 1,
+      });
+    }
+
+    axios
+      .post("https://dummyjson.com/carts/add", {
+        userId: existingCart.userId,
+        products: existingCart.products,
+      })
+      .then((res) => {
+        localStorage.setItem("cart", JSON.stringify(res.data));
+      });
+  };
+
   return (
     <>
       <div className="products my-5">
@@ -118,7 +154,7 @@ function ProductDetails() {
                     +
                   </button>
                 </div>
-                <Link to="">Add to cart</Link>
+                <Link onClick={addCart}>Add to cart</Link>
               </div>
             </div>
           </div>
@@ -127,13 +163,7 @@ function ProductDetails() {
             <p>See what our customers are saying about this product !</p>
             <h5>Reviews and Rating</h5>
           </div>
-          <ReviewCard
-            reviews={reviews.map((result) => ({
-              ...result,
-              productImage: details.images?.[0], 
-              productTitle: details.title, 
-            }))}
-          />
+          <ReviewCard reviews={reviews} showImage={false} showEmail={true} />
         </Container>
       </div>
     </>

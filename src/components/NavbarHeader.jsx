@@ -24,7 +24,7 @@ function NavbarHeader() {
         </Navbar.Toggle>
 
         <Navbar.Collapse id="responsive-navbar-nav">
-          <div className="w-100 d-flex justify-content-end flex-column flex-lg-row">
+          <div className="w-100 d-flex justify-content-end flex-column flex-lg-row pt-0 pt-s-2">
             <Nav className="gap-3">
               <Nav.Link as={Link} to="/home">
                 <i className="fa-solid fa-house"></i>

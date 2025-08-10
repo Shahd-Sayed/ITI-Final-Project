@@ -79,11 +79,10 @@ function Category() {
               onClick={() => {
                 setProducts([]);
                 setCurrentPage(1);
-                setSelectedCategory(""); 
+                setSelectedCategory("");
               }}
               to="#"
-              style={{ cursor: "pointer" }}
-            >
+              style={{ cursor: "pointer" }}>
               All Products
             </Link>
           </div>

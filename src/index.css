@@ -50,3 +50,18 @@ body {
   color: var(--main-color);
   box-shadow: 0px 0px 4px var(--main-color);
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-content {
+  flex: 1;
+}

@@ -2,6 +2,7 @@ import { Button, Container, Table } from "react-bootstrap";
 import "../layouts/Cart.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function Cart() {
   const navigate = useNavigate();
@@ -27,18 +28,46 @@ function Cart() {
   };
 
   const removeCartItem = (id) => {
-    const updatedProducts = cart.products.filter(
-      (product) => product.id !== id
-    );
-    const updatedCart = { ...cart, products: updatedProducts };
+    Swal.fire({
+      title: "Are you sure to remove?",
+      text: "This action cannot be undone!",
+      icon: "warning",
+      showCancelButton: true,
+      cancelButtonText: "Cancel",
+      confirmButtonText: "Yes, remove it!",
+      confirmButtonColor: "var(--main-color)",
+      cancelButtonColor: "#d33",
+      background: "var(--main-bg-color)",
+      color: "var(--main-color)",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const updatedProducts = cart.products.filter(
+          (product) => product.id !== id
+        );
+        const updatedCart = { ...cart, products: updatedProducts };
 
-    if (updatedProducts.length === 0) {
-      localStorage.removeItem("cart");
-      setCart(null);
-    } else {
-      localStorage.setItem("cart", JSON.stringify(updatedCart));
-      setCart(updatedCart);
-    }
+        if (updatedProducts.length === 0) {
+          localStorage.removeItem("cart");
+          setCart(null);
+        } else {
+          localStorage.setItem("cart", JSON.stringify(updatedCart));
+          setCart(updatedCart);
+        }
+
+        Swal.fire({
+          title: "Removed!",
+          text: "The item has been removed successfully.",
+          icon: "success",
+          confirmButtonColor: "var(--main-color)",
+          background: "var(--main-bg-color)",
+          color: "var(--main-color)",
+        }).then(() => {
+          if (updatedProducts.length === 0) {
+            navigate("/product", { replace: true });
+          }
+        });
+      }
+    });
   };
 
   if (!cart) {

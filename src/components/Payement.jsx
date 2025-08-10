@@ -1,10 +1,12 @@
 import { Container } from "react-bootstrap";
 import "../layouts/Payment.css";
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
+import { replace, useNavigate } from "react-router-dom";
 
 function Payement() {
   const [cart, setCart] = useState(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cart"));
     if (savedCart) setCart(savedCart);
@@ -23,12 +25,26 @@ function Payement() {
 
   if (!cart) {
     return (
-      <Container className="my-5 text-center">
+      <Container className="my-5 text-center text-danger fs-4">
         <p>Your cart is empty.</p>
       </Container>
     );
   }
-
+  const handlePay = () => {
+    localStorage.removeItem("cart");
+    setCart(null);
+    Swal.fire({
+      title: "Payment Successful!",
+      text: "Your order has been placed successfully!",
+      icon: "success",
+      confirmButtonText: "OK",
+      confirmButtonColor: "var(--main-color)",
+      background: "var(--main-bg-color)",
+      color: "var(--main-color)",
+    }).then(() => {
+      navigate("/product", { replace: true });
+    });
+  };
   return (
     <>
       <Container>
@@ -69,7 +85,7 @@ function Payement() {
                 <input type="text" name="payment" placeholder="123" />
               </label>
             </div>
-            <button>Pay ${total.toFixed(2)}</button>
+            <button onClick={handlePay}>Pay ${total.toFixed(2)}</button>
             <p className="mt-3">
               Your personal data will be used to process your order, support
               your experience throughout this website, and for other purposes

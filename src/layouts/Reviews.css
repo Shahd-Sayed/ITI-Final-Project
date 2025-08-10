@@ -89,7 +89,7 @@
 .email{
   p{
     color: var(--secondary-color);
-    /* text-align: center; */
+    text-align: center;
     margin-bottom: 0.6rem;
   }
 }

@@ -22,28 +22,30 @@ function App() {
 
   return (
     <>
-      {shouldShowNavbar && <NavbarHeader />}
-
-      <Routes>
-        <Route path="/" element={<SplashScreen />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/product" element={<Category />} />
-        <Route path="/product/:slug" element={<ProductDetails />} />
-        <Route
-          path="/cart"
-          element={
-            <ProtectedRoute>
-              <Cart />
-            </ProtectedRoute>
-          }
-        />
-        <Route path="/payement" element={<Payement />} />
-        <Route path="/contact" element={<ContactForm />} />
-      </Routes>
-
-      {shouldShowNavbar && <Footer />}
+      <div className="app-wrapper">
+        {shouldShowNavbar && <NavbarHeader />}
+        <main className="app-content">
+          <Routes>
+            <Route path="/" element={<SplashScreen />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/product" element={<Category />} />
+            <Route path="/product/:slug" element={<ProductDetails />} />
+            <Route
+              path="/cart"
+              element={
+                <ProtectedRoute>
+                  <Cart />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="/payement" element={<Payement />} />
+            <Route path="/contact" element={<ContactForm />} />
+          </Routes>
+        </main>
+        {shouldShowNavbar && <Footer />}
+      </div>
     </>
   );
 }

@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import emailjs from "emailjs-com";
-import "../layouts/ContactForm.css"; 
+import "../layouts/ContactForm.css";
+import Swal from "sweetalert2";
 
 function ContactForm() {
   const form = useRef();
@@ -19,12 +20,26 @@ function ContactForm() {
       )
       .then(
         () => {
-          alert("Message sent successfully!");
+          Swal.fire({
+            title: "Message Sent ",
+            text: "Your message has been sent successfully!",
+            icon: "success",
+            confirmButtonColor: "var(--main-color)",
+            background: "var(--main-bg-color)",
+            color: "var(--main-color)",
+          });
           form.current.reset();
           setSending(false);
         },
         () => {
-          alert("Failed to send message, try again.");
+          Swal.fire({
+            title: "Failed to Send ❌",
+            text: "Please try again later.",
+            icon: "error",
+            confirmButtonColor: "var(--main-color)",
+            background: "var(--main-bg-color)",
+            color: "var(--main-color)",
+          });
           setSending(false);
         }
       );

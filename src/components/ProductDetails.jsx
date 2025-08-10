@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useEffect, useState, useContext } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate, Navigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import "../layouts/ProductDetails.css";
 import StarRating from "./Star";
 import ReviewCard from "./Home/ReviewCard";
 import { AuthContext } from "../contexts/AuthContext";
+import Swal from "sweetalert2";
 
 function ProductDetails() {
   const { user } = useContext(AuthContext);
@@ -25,8 +26,20 @@ function ProductDetails() {
 
   const addCart = () => {
     if (!user) {
-      alert("Please login first to add products to cart");
-      navigate("/login");
+      Swal.fire({
+        title: "Login Required",
+        text: "Please login first to add products to your cart.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Ok",
+        confirmButtonColor: "var(--main-color)",
+        background: "var(--main-bg-color)",
+        color: "var(--main-color)",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login");
+        }
+      });
       return;
     }
 
@@ -61,7 +74,28 @@ function ProductDetails() {
       })
       .then((res) => {
         localStorage.setItem("cart", JSON.stringify(res.data));
-        alert("Product added to cart!");
+        Swal.fire({
+          title: "Product Added! 🛒",
+          text: `${details.title} has been added to your cart.`,
+          icon: "success",
+          showCancelButton: true,
+          confirmButtonText: "Ok",
+          confirmButtonColor: "var(--main-color)",
+          background: "var(--main-bg-color)",
+          color: "var(--main-color)",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            navigate("/cart", { replace: true });
+          }
+        });
+      })
+      .catch(() => {
+        Swal.fire({
+          title: "Error",
+          text: "Something went wrong. Please try again.",
+          icon: "error",
+          confirmButtonColor: "#103559",
+        });
       });
   };
 

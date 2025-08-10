@@ -7,6 +7,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
+import Swal from "sweetalert2";
 
 function Register() {
   const navigator = useNavigate();
@@ -42,8 +43,27 @@ function Register() {
           }
         )
         .then((result) => {
-          login("Login", result.data.token);
-          navigator("/home", { replace: true });
+          login(result.data.token);
+          Swal.fire({
+            title: "You are Registered Successfully",
+            icon: "success",
+            confirmButtonText: "OK",
+            confirmButtonColor: "var(--main-color)",
+            background: "var(--main-bg-color)",
+            color: "var(--main-color)",
+          }).then(() => {
+            navigator("/home", { replace: true });
+          });
+        })
+        .catch(() => {
+          Swal.fire({
+            title: "Login Failed",
+            text: "Invalid email or password. Please try again.",
+            icon: "error",
+            confirmButtonColor: "var(--main-color)",
+            background: "var(--main-bg-color)",
+            color: "var(--main-color)",
+          });
         });
     },
   });

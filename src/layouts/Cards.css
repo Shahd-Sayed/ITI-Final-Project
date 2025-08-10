@@ -80,6 +80,7 @@
     .image_com {
       width: 100%;
       max-width: 300px;
+      margin: 0 auto;
       img {
         width: 100%;
         text-align: center;

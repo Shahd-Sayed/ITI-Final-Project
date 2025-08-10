@@ -13,6 +13,8 @@ import Payement from "./components/Payement";
 import ContactForm from "./pages/ContactForm";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Error from "./pages/Error";
+import TermsPage from "./pages/TermsPage";
+import Privacy from './pages/Privacy';
 
 function App() {
   const location = useLocation();
@@ -23,11 +25,16 @@ function App() {
     "/cart",
     "/payement",
     "/contact",
+    "/terms",
+    "/privacy",
   ];
 
-  const isProductDetail = location.pathname.startsWith("/product/") && location.pathname !== "/product";
+  const isProductDetail =
+    location.pathname.startsWith("/product/") &&
+    location.pathname !== "/product";
 
-  const shouldShowNavbarFooter = showNavbarFooterPaths.includes(location.pathname) || isProductDetail;
+  const shouldShowNavbarFooter =
+    showNavbarFooterPaths.includes(location.pathname) || isProductDetail;
 
   return (
     <>
@@ -51,6 +58,8 @@ function App() {
             />
             <Route path="/payement" element={<Payement />} />
             <Route path="/contact" element={<ContactForm />} />
+            <Route path="/terms" element={<TermsPage />} />
+            <Route path="/privacy" element={<Privacy />} />
             <Route path="*" element={<Error />} />
           </Routes>
         </main>

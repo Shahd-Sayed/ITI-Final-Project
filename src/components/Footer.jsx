@@ -19,18 +19,26 @@ function Footer() {
             <div className="brands">
               <a
                 href="https://www.facebook.com/shahad.sayed.1232"
-                target="_blank">
+                target="_blank"
+                data-brand="Facebook">
                 <i className="fa-brands fa-facebook"></i>
               </a>
-              <a href="https://www.instagram.com/shahdsayed31/" target="_blank">
+              <a
+                href="https://www.instagram.com/shahdsayed31/"
+                data-brand="Linkedin"
+                target="_blank">
                 <i className="fa-brands fa-linkedin"></i>
               </a>
               <a
                 href="https://www.linkedin.com/in/shahd-sayed-2766a7278/"
-                target="_blank">
+                target="_blank"
+                data-brand="Instagram">
                 <i className="fa-brands fa-instagram"></i>
               </a>
-              <a href="mailto:shahdsayed387@gmail.com" target="_blank">
+              <a
+                href="mailto:shahdsayed387@gmail.com"
+                data-brand="Email"
+                target="_blank">
                 <i className="fa-solid fa-envelope"></i>
               </a>
             </div>
@@ -45,11 +53,11 @@ function Footer() {
                 <img src="../../icon (2).svg" alt="logo" />
               ) : (
                 <img src="../../image (1).webp" alt="logo" />
-              )}{" "}
+              )}
             </div>
             <div className="terms">
-              <Link to="">Terms of Service </Link>
-              <Link to=""> Privacy Policy </Link>
+              <Link to="/terms">Terms of Service </Link>
+              <Link to="/privacy"> Privacy Policy </Link>
             </div>
           </div>
         </Container>

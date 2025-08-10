@@ -4,12 +4,20 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  gap: 50px;
+  gap: 30px;
   min-height: 100vh;
   background-color: var(--main-bg-color);
   overflow: hidden;
-  h1 {
-    font-weight: bold;
+  .error-heading {
+    text-align: center;
+    margin: 0 !important;
+    padding: 0 !important;
+    h1 {
+      font-weight: bold;
+    }
+    p {
+      font-weight: 500;
+    }
   }
   a {
     color: var(--main-color);
@@ -34,7 +42,7 @@
       color: var(--main-text-color);
     }
   }
-  .img-error {
+  img {
     width: 100%;
     max-width: 400px;
     img {

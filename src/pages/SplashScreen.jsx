@@ -1,17 +1,23 @@
+import { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import "../layouts/SplashScreen.css";
-import { useContext, useEffect } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
+import "../layouts/SplashScreen.css";
 
 function SplashScreen() {
   const navigate = useNavigate();
   const { theme } = useContext(ThemeContext);
+
   useEffect(() => {
+    document.body.style.overflow = "hidden";
+
     const timeout = setTimeout(() => {
       navigate("/home", { replace: true });
     }, 3000);
 
-    return () => clearTimeout(timeout);
+    return () => {
+      document.body.style.overflow = "auto";
+      clearTimeout(timeout);
+    };
   }, [navigate]);
 
   return (
@@ -26,4 +32,5 @@ function SplashScreen() {
     </div>
   );
 }
+
 export default SplashScreen;

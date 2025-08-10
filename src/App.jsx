@@ -12,18 +12,27 @@ import Cart from "./components/Cart";
 import Payement from "./components/Payement";
 import ContactForm from "./pages/ContactForm";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Error from "./pages/Error";
 
 function App() {
   const location = useLocation();
 
-  const hideNavbarOnPaths = ["/login", "/register", "/"];
+  const showNavbarFooterPaths = [
+    "/home",
+    "/product",
+    "/cart",
+    "/payement",
+    "/contact",
+  ];
 
-  const shouldShowNavbar = !hideNavbarOnPaths.includes(location.pathname);
+  const isProductDetail = location.pathname.startsWith("/product/") && location.pathname !== "/product";
+
+  const shouldShowNavbarFooter = showNavbarFooterPaths.includes(location.pathname) || isProductDetail;
 
   return (
     <>
       <div className="app-wrapper">
-        {shouldShowNavbar && <NavbarHeader />}
+        {shouldShowNavbarFooter && <NavbarHeader />}
         <main className="app-content">
           <Routes>
             <Route path="/" element={<SplashScreen />} />
@@ -42,9 +51,10 @@ function App() {
             />
             <Route path="/payement" element={<Payement />} />
             <Route path="/contact" element={<ContactForm />} />
+            <Route path="*" element={<Error />} />
           </Routes>
         </main>
-        {shouldShowNavbar && <Footer />}
+        {shouldShowNavbarFooter && <Footer />}
       </div>
     </>
   );

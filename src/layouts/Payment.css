@@ -13,7 +13,7 @@
 .sectionTwos {
   flex: 1 1 400px;
   padding: 25px 30px;
-  background: #fff;
+  background: transparent;
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgb(0 0 0 / 0.05);
@@ -54,6 +54,7 @@ label {
 input[type="text"],
 input[type="date"],
 input[type="number"] {
+  background-color: transparent;
   width: 100%;
   padding: 10px 12px;
   margin-top: 6px;

@@ -5,9 +5,11 @@ import "../layouts/NavbarHeader.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 function NavbarHeader() {
   const { user, logout } = useContext(AuthContext);
+  const { theme, toggle } = useContext(ThemeContext);
 
   const handleLogout = () => {
     logout();
@@ -16,16 +18,22 @@ function NavbarHeader() {
   return (
     <Navbar collapseOnSelect expand="lg">
       <Container>
-        <Navbar.Brand as={Link} to="/home">
-          <img src="../../icon (2).svg" alt="logo" />
-        </Navbar.Brand>
+        {theme === "light" ? (
+          <Navbar.Brand as={Link} to="/home">
+            <img src="../../icon (2).svg" alt="logo" />
+          </Navbar.Brand>
+        ) : (
+          <Navbar.Brand as={Link} to="/home">
+            <img src="../../image (1).webp" alt="logo" />
+          </Navbar.Brand>
+        )}
         <Navbar.Toggle aria-controls="responsive-navbar-nav">
           <i className="fa-solid fa-bars"></i>
         </Navbar.Toggle>
 
         <Navbar.Collapse id="responsive-navbar-nav">
           <div className="w-100 d-flex justify-content-end flex-column flex-lg-row pt-0 pt-s-2">
-            <Nav className="gap-3">
+            <Nav className="gap-3 ">
               <Nav.Link as={Link} to="/home">
                 <i className="fa-solid fa-house"></i>
                 <span>Home</span>
@@ -42,6 +50,7 @@ function NavbarHeader() {
                 <i className="fa-solid fa-address-book"></i>
                 <span>Contact</span>
               </Nav.Link>
+
               {user ? (
                 <Nav.Link as={Link} to="/home" onClick={handleLogout}>
                   <i className="fa-solid fa-right-from-bracket"></i>
@@ -52,6 +61,16 @@ function NavbarHeader() {
                   <i className="fa-solid fa-right-to-bracket"></i>
                   <span>Login</span>
                 </Nav.Link>
+              )}
+
+              {theme === "light" ? (
+                <button className="toogle d-flex align-items-center gap-1" onClick={toggle}>
+                  <i className="fa-solid fa-moon fs-5"></i> Dark
+                </button>
+              ) : (
+                <button className="toogle d-flex align-items-center gap-1" onClick={toggle}>
+                  <i className="fa-solid fa-sun fs-5"></i> Light
+                </button>
               )}
             </Nav>
           </div>

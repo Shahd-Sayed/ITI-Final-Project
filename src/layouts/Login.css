@@ -1,14 +1,16 @@
-/* .allPage{
-  background-color: var(--main-bg-color);
-} */
 
 .login-card {
   width: 100%;
   max-width: 400px;
   box-shadow: 0px 0px 2px var(--main-color);
   background-color: #fff;
-
-  h2 {
+  border-radius:12px ;
+  -webkit-border-radius:12px ;
+  -moz-border-radius:12px ;
+  -ms-border-radius:12px ;
+  -o-border-radius:12px ;
+  h2
+{
     color: var(--main-color);
   }
   label {

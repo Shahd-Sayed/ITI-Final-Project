@@ -3,7 +3,7 @@
   max-width: 400px;
   margin: 40px auto;
   padding: 20px 25px;
-  background-color: #fff;
+  background-color: transparent;
   box-shadow: 0 0 2px var(--main-color);
   border-radius: 12px;
   color: var(--main-color);
@@ -32,12 +32,14 @@
 .contact-form input[type="email"],
 .contact-form textarea {
   width: 100%;
+  background-color: transparent;
   padding: 10px 14px;
   border: 1.5px solid #ddd;
   border-radius: 8px;
   font-size: 1rem;
   transition: border-color 0.3s ease;
 }
+
 
 .contact-form input[type="text"]:focus,
 .contact-form input[type="email"]:focus,

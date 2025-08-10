@@ -1,7 +1,10 @@
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../layouts/Footer.css";
+import { useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 function Footer() {
+  const { theme } = useContext(ThemeContext);
   return (
     <>
       <footer>
@@ -32,13 +35,17 @@ function Footer() {
               </a>
             </div>
           </div>
-          <hr className="my-4"/>
+          <hr className="my-4" />
           <div className="sectionTwo">
             <div className="link">
               <p className="m-0">© 2025 Shahd. All rights reserved.</p>
             </div>
             <div className="img-link">
-              <img src="../../icon (2).svg" alt="logo" />
+              {theme === "light" ? (
+                <img src="../../icon (2).svg" alt="logo" />
+              ) : (
+                <img src="../../image (1).webp" alt="logo" />
+              )}{" "}
             </div>
             <div className="terms">
               <Link to="">Terms of Service </Link>

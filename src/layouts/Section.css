@@ -69,7 +69,6 @@
         -o-border-radius: 8px;
         text-decoration: none;
         &:hover {
-          background-color: #f7e3c1;
           @media (max-width: 768px) {
             background-color: var(--hover-main-color);
           }

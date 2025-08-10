@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import "../layouts/SplashScreen.css";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 function SplashScreen() {
   const navigate = useNavigate();
-
+  const { theme } = useContext(ThemeContext);
   useEffect(() => {
     const timeout = setTimeout(() => {
       navigate("/home", { replace: true });
@@ -16,7 +17,11 @@ function SplashScreen() {
   return (
     <div className="splash d-flex flex-column justify-content-center align-items-center min-vh-100 ">
       <h2 className="fade_in">
-        <img src="../../icon (2).svg" alt="logo" />
+        {theme === "light" ? (
+          <img src="../../icon (2).svg" alt="logo" />
+        ) : (
+          <img src="../../image (1).webp" alt="logo" />
+        )}
       </h2>
     </div>
   );
